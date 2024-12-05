@@ -1,14 +1,28 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Header from '@/components/header/Header'
-import BottomHeader from '@/components/header/BottomHeader'
+import Banner from "@/components/Banner";
+import Products from "@/components/Products";
+import { ProductProps } from "../../type";
 
+interface Props {
+  productData: ProductProps;
+}
 
-export default function Home() {
+export default function Home({ productData }: Props) {
+  console.log(productData);
   return (
     <main>
-      <Header />
-      <BottomHeader />
+      <div className="max-w-screen-2xl mx-auto">
+        <Banner />
+        <div className="relative md:-mt-20 lgl:-mt-32 xl:-mt-60 z-20 mb-10">
+          <Products productData={productData} />
+        </div>
+      </div>
     </main>
-  )
+  );
 }
+
+// SSR for data fectching
+export const getServerSideProps = async () => {
+  const res = await fetch("https://fakestoreapiserver.reactbd.com/tech");
+  const productData = await res.json();
+  return { props: { productData } };
+};
