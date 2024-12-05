@@ -6,10 +6,10 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { SlLocationPin } from "react-icons/sl";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { StateProps } from "../../../type";
+import { IStateProps } from "../../../type";
 
 const Header = () => {
-  const { productData, favoriteData } = useSelector((state: StateProps) => state.next);
+  const { productData, favoriteData } = useSelector((state: IStateProps) => state.next);
 
 
   return (

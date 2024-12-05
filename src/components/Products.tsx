@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ProductProps } from "../../type";
+import { IProductProps } from "../../type";
 import { HiShoppingCart } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import FormattedPrice from "./FormattedPrice";
@@ -22,7 +22,7 @@ const Products = ({ productData }: any) => {
           isNew,
           oldPrice,
           price,
-        }: ProductProps) => (
+        }: IProductProps) => (
           <div
             key={_id}
             className="w-full bg-white text-black p-4 border border-gray-300 rounded-lg group overflow-hidden"

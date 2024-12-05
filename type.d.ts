@@ -1,4 +1,4 @@
-export interface ProductProps {
+export interface IProductProps {
   _id: number;
   brand: string;
   category: string;
@@ -10,7 +10,7 @@ export interface ProductProps {
   title: string;
 }
 
-export interface StoreProduct {
+export interface IStoreProduct {
   _id: number;
   brand: string;
   category: string;
@@ -23,7 +23,7 @@ export interface StoreProduct {
   quantity: number;
 }
 
-export interface StateProps {
+export interface IStateProps {
   productData: [];
   favoriteData: [];
   userInfo: null | string;

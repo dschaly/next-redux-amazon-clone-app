@@ -1,13 +1,12 @@
 import Banner from "@/components/Banner";
 import Products from "@/components/Products";
-import { ProductProps } from "../../type";
+import { IProductProps } from "../../type";
 
 interface Props {
-  productData: ProductProps;
+  productData: IProductProps;
 }
 
 export default function Home({ productData }: Props) {
-  console.log(productData);
   return (
     <main>
       <div className="max-w-screen-2xl mx-auto">
