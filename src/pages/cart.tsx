@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import { IStateProps, IStoreProduct } from "../../type";
 import CartProduct from "@/components/CartProduct";
+import ResetCart from "@/components/ResetCart";
+import Link from "next/link";
+import CartPayment from "@/components/CartPayment";
 
 const CartPage = () => {
   const { productData } = useSelector((state: IStateProps) => state.next);
@@ -16,19 +19,25 @@ const CartPage = () => {
               </p>
               <p className="text-lg font-semibold text-amazon_blue">Subtitle</p>
             </div>
-            <div className="">
+            <div className="pt-2 flex flex-col gap-2">
               {productData.map((item: IStoreProduct) => (
-                <div key={item._id} className="pt-2 flex flex-col gap-2">
+                <div key={item._id} className="">
                   <CartProduct item={item} />
                 </div>
               ))}
+              <ResetCart />
             </div>
+          </div>
+          <div className="bg-white h-64 col-span-1 p-4 rounded-lg flex items-center justify-center">
+            <CartPayment />
           </div>
         </>
       ) : (
-        <div className="">
-          <h1 className="">Your cart is empty!</h1>
-          <button className="">Go to shopping!</button>
+        <div className="bg-white h-64 col-span-5 flex flex-col items-center justify-center py-5 rounded-lg shadow-lg">
+          <h1 className="text-lg font-medium">Your cart is empty!</h1>
+          <Link href="/">
+            <button className="w-52 h-10 bg-amazon_blue text-white rounded text-sm font-semibold hover:bg-amazon_yellow hover:text-black">Go to shopping!</button>
+          </Link>
         </div>
       )}
     </div>
